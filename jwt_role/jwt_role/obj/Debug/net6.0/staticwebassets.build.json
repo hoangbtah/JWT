@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "H4Gm9ZegLC/YmoA7SlUsxLFOEueNwVNN0XU0tFu/Uds=",
+  "Source": "jwt_role",
+  "BasePath": "_content/jwt_role",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
