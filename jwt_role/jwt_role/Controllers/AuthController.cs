@@ -25,6 +25,7 @@ namespace jwt_role.Controllers
         {
             CreatePasswordHash(request.Password, out byte[] passwordhand, out byte[] passwordsalt);
                 user.Username = request.Username;
+            user.Role = request.Role;
             user.PasswordHash = passwordhand;
             user.PasswordSalt=passwordsalt;
             return Ok(user);
@@ -49,7 +50,7 @@ namespace jwt_role.Controllers
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name,user.Username),
-                 new Claim(ClaimTypes.Role,"User")
+                 new Claim(ClaimTypes.Role,user.Role)
             };
 
             var key= new SymmetricSecurityKey(System.Text.Encoding.UTF8.
@@ -92,6 +93,12 @@ namespace jwt_role.Controllers
         public IActionResult getpassword()
         {
             return Ok("my password");
+        }
+        
+        [HttpGet("getstring")]
+        public IActionResult getstring()
+        {
+            return Ok("my string");
         }
 
     }

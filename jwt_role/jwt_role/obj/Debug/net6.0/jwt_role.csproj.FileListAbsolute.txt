@@ -37,3 +37,4 @@ E:\jwt\jwt_role\jwt_role\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 E:\jwt\jwt_role\jwt_role\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\jwt\jwt_role\jwt_role\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 E:\jwt\jwt_role\jwt_role\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\jwt\jwt_role\jwt_role\obj\Debug\net6.0\jwt_role.sourcelink.json

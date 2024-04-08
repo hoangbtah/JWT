@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -16,6 +16,26 @@ namespace jwt_role
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            // Xử lý cros policy
+            //builder.Services.AddCors(options =>
+            //{
+            //    options.AddDefaultPolicy(
+            //       policy =>
+            //       {
+            //           policy.WithOrigins("*");
+            //           policy.WithHeaders("Origin", "Content-Type", "Accept");
+            //           policy.WithMethods("GET", "POST", "PUT", "DELETE");
+            //       });
+            //});
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("http://localhost:8080") // Thay đổi thành nguồn gốc của Vue.js của bạn
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
             // xac thuc
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -29,6 +49,7 @@ namespace jwt_role
                         ValidateAudience = false,
                     };
                 });
+         
 
             var app = builder.Build();
 
@@ -38,7 +59,7 @@ namespace jwt_role
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
